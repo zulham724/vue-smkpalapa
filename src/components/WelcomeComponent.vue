@@ -1,7 +1,7 @@
 <template>
   <v-container>
       <v-row>
-          <v-carousel height="40vh">
+          <v-carousel height="40vh" continuous cycle>
                 <v-carousel-item
                 v-for="(item,i) in items"
                 :key="i"
@@ -11,35 +11,51 @@
                 ></v-carousel-item>
             </v-carousel>
       </v-row>
-      <v-row>
+      <v-row style="margin-top:-10vh;">
           <v-col cols="6">
-              <v-card ripple>
+              <v-card style="z-index:100" ripple @click="openBrowser('https://smkpalapasemarang.sch.id/')">
                   <v-card-text style="text-align:center">
-                      <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbWNGZ1rturyqE6Wf_vUDHT4hUsjq0SY5qjCgxtGz6WkLMsZCR&s"></v-img>
+                      <v-icon size="100">phonelink</v-icon>
                       <div class="caption grey--text">Web Sekolah</div>
                   </v-card-text>
               </v-card>
           </v-col>
           <v-col cols="6">
-              <v-card ripple>
+              <v-card style="z-index:100" ripple @click="openBrowser('https://smkpalapasemarang.sch.id/app/index.php/login')">
                   <v-card-text style="text-align:center">
-                    <v-img src="https://www.konfest.com/wp-content/uploads/2019/05/Konfest-PNG-JPG-Image-Pic-Photo-Free-Download-Royalty-Unlimited-clip-art-sticker-icons-search-symbol-find-magnifying-glass-160.png"></v-img>
+                    <v-icon size="100">cast_connected</v-icon>
                     <div class="caption grey--text">Sistem Sekolah</div>
                   </v-card-text>
               </v-card>
           </v-col>
           <v-col cols="6">
-              <v-card ripple>
+              <v-card style="z-index:100" ripple @click="openBrowser('https://smkpalapasemarang.sch.id/contact-1/')">
                   <v-card-text style="text-align:center">
-                      <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWGYFI3jpbGtV_XmGC-F6onJOjgONVp1PXDKJ7PKtohW_yPh6GJw&s"></v-img>
+                      <v-icon size="100">map</v-icon>
+                      <div class="caption grey--text">Lokasi</div>
+                  </v-card-text>
+              </v-card>
+          </v-col>
+          <v-col cols="6">
+              <v-card style="z-index:100" ripple @click="openBrowser('https://smkpalapasemarang.sch.id/contact-1/')">
+                  <v-card-text style="text-align:center">
+                      <v-icon size="100">local_library</v-icon>
+                      <div class="caption grey--text">Visi Misi</div>
+                  </v-card-text>
+              </v-card>
+          </v-col>
+          <v-col cols="6">
+              <v-card style="z-index:100" ripple @click="openBrowser('https://smkpalapasemarang.sch.id/sejarah-singkat/')">
+                  <v-card-text style="text-align:center">
+                      <v-icon size="100">person_pin</v-icon>
                       <div class="caption grey--text">Tentang</div>
                   </v-card-text>
               </v-card>
           </v-col>
           <v-col cols="6">
-              <v-card ripple>
+              <v-card style="z-index:100" ripple @click="openBrowser('https://smkpalapasemarang.sch.id/contact-1/')">
                   <v-card-text style="text-align:center">
-                      <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTglCzU6G7IMYHWOGDnFydUq7O8iJkUyawq_SbEvoX9B3nVkQ-voQ&s"></v-img>
+                      <v-icon size="100">contact_mail</v-icon>
                       <div class="caption grey--text">Hubungi</div>
                   </v-card-text>
               </v-card>
@@ -66,6 +82,14 @@ export default {
                 src: 'http://foto2.data.kemdikbud.go.id/getImage/20331927/12.jpg',
             },
             ],
+        }
+    },
+    mounted(){
+
+    },
+    methods:{
+        openBrowser(link){
+            cordova.InAppBrowser.open(link, '_blank', 'zoom=no,location=no');
         }
     }
 }
